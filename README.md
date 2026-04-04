@@ -16,6 +16,10 @@ The backend is built using **Node.js**, **Express.js**, and **PostgreSQL**, and 
 | Dashboard Summary APIs | Total income/expense, net balance, category-wise totals, last 5 transactions, monthly trends |
 | Access Control | RBAC enforced at backend; Viewer: dashboard only, Analyst: manage records & dashboard, Admin: full access |
 | Validation & Error Handling | express-validator input validation, JWT authentication, role-based authorization, proper HTTP status codes, soft delete |
+| JWT Authentication | Tokens have 1-day expiry |
+| Soft Delete | Records are hidden but not permanently deleted |
+| Pagination | For record listing |
+| Role-based Middleware | Enforce route-level permissions |
 
 ---
 
@@ -35,9 +39,9 @@ The backend is built using **Node.js**, **Express.js**, and **PostgreSQL**, and 
 
 | Step | Command / Action |
 |------|-----------------|
-| Clone repo | `git clone <repo_url>` <br> `cd finance-backend` |
+| Clone repo | `git clone https://github.com/yourusername/finance-backend.git` <br> `cd finance-backend` |
 | Install dependencies | `npm install` |
-| Setup .env | `PORT=5000` <br> `DATABASE_URL=postgresql://username:password@localhost:5432/finance_db` <br> `JWT_SECRET=your_secret_key` <br> `JWT_EXPIRY=1d` |
+| Setup .env | ```env<br>PORT=5000<br>JWT_SECRET=myverysecretkey<br>DB_USER=postgres<br>DB_PASSWORD=Abeljohn123<br>DB_NAME=finance_db<br>DB_HOST=localhost<br>DB_PORT=5432<br>``` |
 | Start server | `npm run dev` <br> Server runs at [http://localhost:5000](http://localhost:5000) |
 
 ---
@@ -109,25 +113,3 @@ The backend is built using **Node.js**, **Express.js**, and **PostgreSQL**, and 
 | Invalid input | 400 Bad Request |
 | Database / server errors | 500 Internal Server Error |
 | Soft delete | Records hidden but retained in DB |
-
----
-
-## Optional Enhancements
-
-| Feature | Description |
-|---------|------------|
-| JWT expiry | Tokens have 1-day expiry |
-| Soft delete | Records not permanently deleted |
-| Pagination | For record listing |
-| Role-based middleware | Enforce route-level permissions |
-
----
-
-## Assumptions & Notes
-
-| Point | Note |
-|-------|------|
-| Unique Email | Each user has a unique email |
-| User-specific records | All financial records belong to a single user |
-| Soft delete | Hides records but keeps them in DB |
-| Dashboard summaries | User-specific |
