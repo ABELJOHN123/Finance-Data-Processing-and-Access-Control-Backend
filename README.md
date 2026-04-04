@@ -39,7 +39,7 @@ The backend is built using **Node.js**, **Express.js**, and **PostgreSQL**, and 
 
 | Step | Command / Action |
 |------|-----------------|
-| Clone repo | `git clone https://github.com/yourusername/finance-backend.git` <br> `cd finance-backend` |
+| Clone repo | `https://github.com/ABELJOHN123/Finance-Data-Processing-and-Access-Control-Backend.git` |
 | Install dependencies | `npm install` |
 | Setup .env | ```env<br>PORT=5000<br>JWT_SECRET=myverysecretkey<br>DB_USER=postgres<br>DB_PASSWORD=Abeljohn123<br>DB_NAME=finance_db<br>DB_HOST=localhost<br>DB_PORT=5432<br>``` |
 | Start server | `npm run dev` <br> Server runs at [http://localhost:5000](http://localhost:5000) |
